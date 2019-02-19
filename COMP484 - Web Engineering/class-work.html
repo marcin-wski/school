@@ -19,13 +19,49 @@
         <p>Welcome to my page. 2 &gt; 1</p>
         <p> &quot; Deitel &amp; Deitel &quot; &#43 </p>
         <p>
-        <a href="">Last Paragraph</a>
+        <a href="#lastp">Last Paragraph</a>
             This is random text. This is a lot of random text. A LOT of random text. This is random text. This is a lot of random text. A LOT of random text. This is random text. This is a lot of random text. A LOT of random text. This is random text. This is a lot of random text. A LOT of random text. This is random text. This is a lot of random text. A LOT of random text.This is random text. This is a lot of random text. A LOT of random text. This is random text. This is a lot of random text. A LOT of random text. This is random text. This is a lot of random text. A LOT of random text. This is random text. This is a lot of random text. A LOT of random text. This is random text. This is a lot of random text. A LOT of random text. This is random text. This is a lot of random text. A LOT of random text.This is random text. This is a lot of random text. A LOT of random text. This is random text. This is a lot of random text. A LOT of random text. This is random text. This is a lot of random text. A LOT of random text.
         </p>
-        <form method="get" action="http://www.gmail.com/fileprocess.php">
+        <form method="get" action="http://www.gmail.com/fileprocess.php" autocomplete="on">
+            <p>
+                <label>Select a color (or HEX code)<input type="color" name="color" autofocus</label>
+            </p>
+            <p>
+                <label>Enter date:<input type="date" name="date"></label>
+            </p>
+            <p>
+                <label>Datetime-local<input type="datetime-local" name="datetime-local"></label>
+            </p>
+            <p>
+                <label>Do not use this one<input type="datetme" name="datetime"></label>
+            </p>
+            <p>
+                <label>Month<input type="month" name="month"></label>
+            </p>
+            <p>
+                <label>Time<input type="time" name="time"></label>
+            </p>
+            <p>
+                <label>week: (2019-W15)<input type="week" name="week"></label>
+            </p>
+            <p>
+                <label>add URL:<input type="url" name="url"></label>
+            </p>
+            <p>
+                <label>Years of experience<input type="number" name="schoolyears" min="0" max="30" stop="5"></label>
+            </p>
+            <p>
+                <label>Years of driving<input type="range" name="driving" min="0" max="30" value="25"></label>
+            </p>
+            <p>
+                <label>Phone number<input type="tel" name="tel" placeholder="(###) ###-####"></label>
+            </p>
+            <p>
+                <label>Search:<input type="search" name="search" placeholder="search query"></label>
+            </p>
             <p>
                 <label>Firstname</label>
-                <input type="text" name="firstname" size="5" maxlenght="10" value="John">>
+                <input type="text" name="firstname" size="5" maxlenght="10" value="John">
             </p>
             <p>
                 <label>Lastname
@@ -39,7 +75,7 @@
             </label>
             <p>
                 <label>email
-                    <input label="email" type="email" name="email"</label>
+                    <input label="email" type="email" name="email"></label>
                 </label>
             </p>
             <p>
@@ -93,11 +129,33 @@
                 </label>
             </p>
             <p>
-                <input type="submit" name="submit" value="register">
+                <label>
+                    datalist and text input type: select a month
+                    <input type="text" name="selectMonth" list="datalist">
+                </label>
+                <datalist>
+                    <option value="Jan">
+                    <option value="Feb">
+                    <option value="Mar">
+                    <option value="Apr">
+                    <option value="May">
+                    <option value="Jun">
+                    <option value="Jul">
+                    <option value="Aug">
+                    <option value="Sep">
+                    <option value="Oct">
+                    <option value="Nov">
+                    <option value="Dec">
+                </datalist>
+            </p>
+            <p>
+                <input type="hidden" name="subject" value="registration form">
+                <input type="hidden" name="redirect" value="pageA.html">
+                <input type="submit" name="submit" value="register" formnovalidate>
                 <input type="reset" name="reset" value="clear">
             </p>
         </form>
-        <p>
+        <p id="lastp">
             This is random text. This is a lot of random text. A LOT of random text. This is random text. This is a lot of random text. A LOT of random text. This is random text. This is a lot of random text. A LOT of random text. This is random text. This is a lot of random text. A LOT of random text. This is random text. This is a lot of random text. A LOT of random text.This is random text. This is a lot of random text. A LOT of random text. This is random text. This is a lot of random text. A LOT of random text. This is random text. This is a lot of random text. A LOT of random text. This is random text. This is a lot of random text. A LOT of random text. This is random text. This is a lot of random text. A LOT of random text. This is random text. This is a lot of random text. A LOT of random text.This is random text. This is a lot of random text. A LOT of random text. This is random text. This is a lot of random text. A LOT of random text. This is random text. This is a lot of random text. A LOT of random text.
         </p>
     </body>
