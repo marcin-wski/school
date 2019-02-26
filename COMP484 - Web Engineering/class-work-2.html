@@ -3,19 +3,53 @@
         <meta charset="utf-8">
         <title>Welcome</title>
         <style type="">
+            div p { color: red }
             p { background-color: lightgray;
-                font-size: 50pt
+                font-size: 50pt;
+                font-family: "Times New Roman", Times, serif;
             }
+            
+            h4 { font-family: "Comic Sans MS", cursive, sans-serif
+            }
+            
+            .green { color: green }
+            $special { color: pink }
+            
+            div.green { font-family: "Comic Sans MS", cursive, sans-serif }
+            
+            div span { color: purple }
+            div > span { background-color: powderblue; }
+            p + h5 { font-size: 40pt; }
+            p ~ h5 { background-color: yellow; }
+            [id] { font-family: "Comic Sans MS", cursive, sans-serif }
+            [method="post"] { color: orange; }
+            
+            ul ~ p { color: pink; }
+            
+            input [type="text"] {
+                color: blue;
+                background-color: yellow;
+            }
+            
+            div span.grey { color: grey }
+            div.blue span { color: blue }
+            
+            
         </style>
     </head>
     <body>
         <header>
-                <figure><img src="https://www.samaritans.org/sites/default/files/branch/twitter_logo_bird_transparent_png.png" width="500"></figure><h3>CSUN CS Department</h3>
+                <figure>
+                    <img src="https://www.samaritans.org/sites/default/files/branch/twitter_logo_bird_transparent_png.png" width="500">
+                </figure>
+                <h3>CSUN CS Department</h3>
             </a>
             <p>
                 <a href="http://www.google.com">google</a>
             </p>
+            <p class="green"> a green element</p>
         </header>
+        <p id="special">A speciall paragraph with id</p>
         <p style= "font-size: 15pt; color: blue; background-color: lightgray">
             This is random text. This is a lot of random text. A LOT of random text. This is random text. This is a lot of random text. A LOT of random text. This is random text. This is a lot of random text. A LOT of random text. This is random text. This is a lot of random text. A LOT of random text. This is random text. This is a lot of random text. A LOT of random text. This is random text. This is a lot of random text. A LOT of random text. This is random text. This is a lot of random text. A LOT of random text. This is random text. This is a lot of random text. A LOT of random text. This is random text. This is a lot of random text. A LOT of random text. This is random text. This is a lot of random text. A LOT of random text. This is random text. This is a lot of random text. A LOT of random text.This is random text. This is a lot of random text. A LOT of random text. This is random text. This is a lot of random text. A LOT of random text. This is random text. This is a lot of random text. A LOT of random text.
         </p>
@@ -28,7 +62,7 @@
                 This is random text. This is a lot of random text. A LOT of random text. This is random text. This is a lot of random text. A LOT of random text. <div style="background-color: forestgreen">This is random text. This is a lot of random text. A LOT of random text.</div> This is random text. This is a lot of random text. A LOT of random text. This is random text. This is a lot of random text. A LOT of random text. This is random text. This is a lot of random text. A LOT of random text. This is random text. This is a lot of random text. A LOT of random text. This is random text. This is a lot of random text. A LOT of random text. This is random text. This is a lot of random text. A LOT of random text. This is random text. This is a lot of random text. A LOT of random text. This is random text. This is a lot of random text. A LOT of random text.This is random text. This is a lot of random text. A LOT of random text. This is random text. This is a lot of random text. A LOT of random text. This is random text. This is a lot of random text. A LOT of random text.
             </section>
             <section>
-                <h4>Holidays</h4>
+                <h4 class="green">Holidays</h4>
                 This is random text. This is a lot of random text. A LOT of random text. This is random text. This is a lot of random text. A LOT of random text. This is random text. This is a lot of random text. A LOT of random text. <span style="color:red">This is random text.</span> This is a lot of random text. A LOT of random text. This is random text. This is a lot of random text. A LOT of random text. This is random text. This is a lot of random text. A LOT of random text. This is random text. This is a lot of random text. A LOT of random text. This is random text. This is a lot of random text. A LOT of random text. This is random text. This is a lot of random text. A LOT of random text. This is random text. This is a lot of random text. A LOT of random text. This is random text. This is a lot of random text. A LOT of random text.This is random text. This is a lot of random text. A LOT of random text. <mark style="">This is random text. This is a lot of random text. A LOT of random text.</mark> This is random text. This is a lot of random text. A LOT of random text.
             </section>
         </aside>
