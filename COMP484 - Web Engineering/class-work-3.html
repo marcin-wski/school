@@ -8,8 +8,11 @@
                 background-repeat: no-repeat;
                 background-attachment: fixed;
                 background-position: 20px,10px;
-                background-color: powderblue;
+                background-color: black;
+                font-family: verdana;
+                color: white;
                 background-size: 150%,150%;
+                url-color: red;
             }
             .back { position: absolute;
                     z-index: 1;
@@ -36,6 +39,13 @@
             .left { position: relative;
                     left: -10px;
             }
+            .ind { text-indent: 2em;
+                    font-style: italic;
+                    width: 50px;
+                    height: 50px;
+                    overflow: auto;
+                    text-align: center;
+            }
         </style>
         <link ref="stylesheet" type="text/css" href="style.css">
     </head>
@@ -51,7 +61,7 @@
         <p>Some text <span class="sub">goes here</span></p>
         <p>Some text <span class="left">goes here</span></p>
         <p>Some text <span class="right">goes here</span></p>
-        <p>Some text goes here</p>
+        <p><span class="ind">Some text goes here to test the ind class and text indent</span></p>
         <p>Some text goes here</p>
     </body>
 </html>
