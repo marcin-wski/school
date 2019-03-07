@@ -46,6 +46,34 @@
                     overflow: auto;
                     text-align: center;
             }
+            @media screen and ( max-width: 400px;),
+                    screen and ( max-device-width: 400px;),
+                    handheld and ( max-width: 400px )
+                    {
+                        div {
+                            column-count: 1;
+                        }
+                    }
+            @media screen and ( min-width:401px; ) and ( max-width: 1024px; ),
+                    {
+                        div {
+                            column-count: 2;
+                            color: green;
+                            border: 4px groove black;
+                            column-rule: 1px solid black;
+                            column-gap: 3px;
+                        }
+                    }
+            @media screen and ( min-width: 1025px; )
+                    {
+                        div {
+                            column-count: 3;
+                            color: purple;
+                        }
+                    }
+            p, h5 {
+                border: inherit;
+            }
         </style>
         <link ref="stylesheet" type="text/css" href="style.css">
     </head>
