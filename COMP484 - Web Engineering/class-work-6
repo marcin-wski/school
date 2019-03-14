@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Menu </title>
+        <style type="text/css">
+        </style>
+        <script type="text/javascript">
+            var name = document.write("Enter your name: ");
+            var now = newDate();
+            console.log(now)
+            var hour = now.getHours();
+            console.log(hour);
+            if (hour < 12)
+                document.write("<p> Good Morning ", name, " !</p>");
+            else if (hour < 18)
+                {
+                document.writeln("<p> Good Afternoon ", name, " !</p>");
+                document.writeln("<p> Have a great day!</p>");
+                }
+            else
+                document.writeln("<p> Good Evening ", name, " !</p>");
+                
+            var grade;
+            var average;
+            var total = 0;
+            var gradeCount = 0;
+            
+            while(gradeCount <= 4)
+            {
+            if (grade >= 0);
+                if (( grade <= 100 ) && (grade >= 0 ))
+                    {
+                    grade = parseInt(window.prompt("Enter your grade 0-100: ", 0);
+                    total += grade;
+                    ++gradeCount;
+                    }
+            }
+            
+            average = total / gradeCount;
+            document.write("<p>Average is ", average, "</p>")
+            if (average > 90)
+                document.writeln("<p>Average is A</p>")
+            else if (average > 80)
+                document.writeln("<p>Average is B</p>")
+            else if (average > 70)
+                document.writeln("<p>Average is C</p>")
+            else if (average > 60)
+                document.writeln("<p>Average is D</p>")
+            else
+                document.write("<p>gradeCount is 0, no valid value entered</p>");
+        </script>
+    </head>
+    <body>
+    </body>
+</html>
