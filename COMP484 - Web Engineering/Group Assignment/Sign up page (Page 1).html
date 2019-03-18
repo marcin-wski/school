@@ -1,0 +1,116 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Sign up</title>
+
+	<!--Missing CSS right now-->
+
+    </head>
+    <body>
+	<header>
+
+	<!--Missing header and footer right now-->
+
+	</header>
+	<article>
+        <h1>Sign up today to receive the latest updates!</h1>
+        <form method="post" action=" http://www.deitel.com">
+            <p>
+                <label>Firstname
+                <input type="text" name="firstname" size="5" maxlenght="10" value="John" autocomplete="on" autofocus>
+                </label>
+            </p>
+            <p>
+                <label>Lastname
+                    <input type="text" name="lastname" size="30" value="Smith" autocomplete="on">
+                </label>
+            </p>
+            <p>
+                <label>Email
+                <input type="email" name="email" placeholder="john.smith@gmail.com">
+                </label>
+            </p>
+            <p>
+                <label>password
+                    <input label="password" atype="submit" name="submit">
+                </label>
+            </p>
+            <p>
+                <label>Re-enter password
+                <input type="password" atype="submit" name="submit">
+                </label>
+            </p>
+            <p>
+                <label>Enter your birth date:
+                <input type="birthday" name="birthday" size="10" placeholder="January 1 1998">
+                </label>
+            </p>
+            <p>
+                <label>Select your major:
+                    <select name="selectMajor" list="datalist">
+                </label>
+                <datalist>
+                    <option value="Civil Engineering">
+                    <option value="Computer Engineering">
+                    <option value="Computer Information Technology">
+                    <option value="Computer Science">
+                    <option value="Electrical Engineering">
+                    <option value="Engineering Management">
+                    <option value="Manufacturing Systems Engineering">
+                    <option value="Mechanical Engineering">
+                </datalist>
+            </p>
+            <p>
+                <label>Select your favorite color
+                <input type="color" name="color">
+                </label>
+            </p>
+            <p>
+                <label>Number of years in college
+                    <select name="college">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                    </select>
+                </label>
+            </p>
+            <p>
+                <label>Phone number
+                <input type="tel" name="tel" placeholder="(###) ###-####">
+                </label>
+            </p>
+            <p>
+				<label>Link to your homepage:
+				<input type="url" name="url" novalidate>
+				</label>
+            </p>
+            <p>
+                <label>Years of experience
+                    <select name="college">
+                        <option>0-5</option>
+                        <option>5-10</option>
+                        <option>15-20</option>
+                        <option>20+</option>
+                    </select>
+                </label>
+            </p>
+            <p>
+                <label>Skill level in Python
+				<input type="range" name="skills" min="0" max="10" value="5">
+				</label>
+            </p>
+            <p>
+                <label>Contact Preference
+                    <select multiple name="college">
+                        <option>I would like to receive emails about new products and offers</option>
+                        <option>I would like to receive emails about my account and membership</option>
+                        <option>I would like to receive mail</option>
+                    </select>
+                </label>
+            </p>
+		<input type="submit" name="submit" value="register" formnovalidate>
+                <input type="reset" name="reset" value="clear">
+        </form>
+    </body>
+</html>
