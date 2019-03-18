@@ -1,0 +1,14 @@
+body	{
+	background-image: url("https://proxy.duckduckgo.com/iu/?u=http%3A%2F%2Foathorpacademy.org%2Fwp-content%2Fuploads%2F2016%2F10%2FSign-up-Here.png&f=1");
+	background-repeat: repeat-y;
+}
+form {
+   text-align: center;
+   width: 50%;
+   background-image: url("https://www.formica.com/~/media/emea/images/decors/eu/cc0949.jpg" center);
+   border: groove silver;
+}
+span {
+	font-family: "Comic Sans";
+	color: red;
+}
