@@ -2,9 +2,7 @@
     <head>
         <meta charset="utf-8">
         <title>Sign up</title>
-
-	<!--Missing CSS right now-->
-
+		<link rel="stylesheet" href="Sign up page (Page 1).css">
     </head>
     <body>
 	<header>
@@ -14,7 +12,7 @@
 	</header>
 	<article>
         <h1>Sign up today to receive the latest updates!</h1>
-        <form method="post" action=" http://www.deitel.com">
+        <form method="post" action="http://www.deitel.com">
             <p>
                 <label>Firstname
                 <input type="text" name="firstname" size="5" maxlenght="10" value="John" autocomplete="on" autofocus>
@@ -46,10 +44,9 @@
                 </label>
             </p>
             <p>
-                <label>Select your major:
-                    <select name="selectMajor" list="datalist">
-                </label>
-                <datalist>
+                <label for="selectMajor">Select your major:</label>
+                    <input list="majors" name="selectMajor" id="selectMajor"/>
+                <datalist id="majors">
                     <option value="Civil Engineering">
                     <option value="Computer Engineering">
                     <option value="Computer Information Technology">
@@ -61,7 +58,7 @@
                 </datalist>
             </p>
             <p>
-                <label>Select your favorite color
+                <label>Select your <span>favorite color</span>
                 <input type="color" name="color">
                 </label>
             </p>
