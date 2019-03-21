@@ -5,10 +5,11 @@ body	{
 form {
    text-align: center;
    width: 50%;
-   background-image: url("https://www.formica.com/~/media/emea/images/decors/eu/cc0949.jpg" center);
+   background-image: url("https://www.formica.com/~/media/emea/images/decors/eu/cc0949.jpg" center); /*Background "sign up" picture*/
    border: groove silver;
 }
+/*Using span element for inline edit*/
 span {
-	font-family: "Comic Sans";
+	font-family: "Comic Sans"; /*Specifying Comic Sans as the browser font*/
 	color: red;
 }
