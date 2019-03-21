@@ -12,10 +12,10 @@
 	</header>
 	<article>
         <h1>Sign up today to receive the latest updates!</h1>
-        <form method="post" action="http://www.deitel.com">
+        <form method="post" action="http://www.deitel.com"> <!--clicking submit sends the data to deitel.com-->
             <p>
                 <label>Firstname
-                <input type="text" name="firstname" size="5" maxlenght="10" placeholder="John" autocomplete="on" autofocus>
+                <input type="text" name="firstname" size="5" maxlenght="10" placeholder="John" autocomplete="on" autofocus> <!--Enabled autofocus on the first name and turned autocomplete on-->
                 </label>
             </p>
             <p>
@@ -30,7 +30,7 @@
             </p>
             <p>
                 <label>password
-                    <input label="password" atype="submit" name="submit">
+                    <input label="password" atype="submit" name="submit"> <!--Input type "password" specifically for passowrd fields-->
                 </label>
             </p>
             <p>
@@ -45,7 +45,7 @@
             </p>
             <p>
                 <label for="selectMajor">Select your major:</label>
-                    <input list="majors" name="selectMajor" id="selectMajor"/>
+                    <input list="majors" name="selectMajor" id="selectMajor"/> <!--Input list will take the options fromn datalist below, the IDs match-->
                 <datalist id="majors">
                     <option value="Civil Engineering">
                     <option value="Computer Engineering">
@@ -59,12 +59,12 @@
             </p>
             <p>
                 <label>Select your <span>favorite color</span>
-                <input type="color" name="color">
+                <input type="color" name="color"> <!--type "color" allows you to choose the color from the special panel-->
                 </label>
             </p>
             <p>
                 <label>Number of years in college
-                    <select name="college">
+                    <select name="college"> <!--a simple selector of 4 options-->
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
@@ -79,7 +79,7 @@
             </p>
             <p>
 				<label>Link to your homepage:
-				<input type="url" name="url" novalidate>
+				<input type="url" name="url" novalidate> <!--novalidate to avoid issues with URLs inputed-->
 				</label>
             </p>
             <p>
@@ -94,18 +94,19 @@
             </p>
             <p>
                 <label>Skill level in Python
-				<input type="range" name="skills" min="0" max="10" value="5">
-				</label>
+			<input type="range" name="skills" min="0" max="10" value="5">
+		</label>
             </p>
             <p>
                 <label>Contact Preference
-                    <select multiple name="college">
+                    <select multiple name="college"> <!--possibility for multiple selection-->
                         <option>I would like to receive emails about new products and offers</option>
                         <option>I would like to receive emails about my account and membership</option>
                         <option>I would like to receive mail</option>
                     </select>
                 </label>
             </p>
+		<!--submit and reset buttons-->
 		<input type="submit" name="submit" value="register" formnovalidate>
                 <input type="reset" name="reset" value="clear">
         </form>
