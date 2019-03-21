@@ -1,5 +1,5 @@
 *:not(body):not(html):hover {
-	background-color: lightblue;
+	background-color: lightblue; /*lightblue color when user hovers over any element... exluding body and html*/
  }
 
 p {
@@ -10,11 +10,11 @@ p {
 	padding: 2em;
 	width: 30%;
 	height: 150px;
-	overflow: scroll;
+	overflow: scroll; /*overflow's scroll option gives two scroll bars, one horizontal and one vertical. Same can be accomplished using "auto" if the browser windows is small but there's a lot of text*/
 }
 
 .p2 {
 	width: 30%;
 	height: 150px;
-	overflow: hidden;
+	overflow: hidden; /*overflow's hidden option will keep text hidden if it overflows from the text box*/
 }
