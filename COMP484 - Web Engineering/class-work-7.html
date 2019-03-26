@@ -25,11 +25,50 @@
               default:
                 error = "<p>Invalid input</p>";
             }
-          var markup("<ol style='list-style-type:" + style +"'><li>apple</li><li>banana</li><li>orange</li></ol>";
+          var markup("<ol style='list-style-type:" + style + "'><li>apple</li><li>banana</li><li>orange</li></ol>";
           document.writeln(markup);
+            
+          var a = 1;
+          do
+          {
+            if (a == 5)
+                break;
+            else
+            {
+                document.writeln("<p>a: " + a + "</p>");
+                a++;
+            }
+          } while(a < 10)
+          do
+          {
+            if (a == 5)
+            {
+                a++;
+                continue;
+            }
+            else
+            {
+                document.writeln("<p>a: " + a + "</p>");
+                a++;
+            }
+          } while(a < 10)
+              
+          while (a < 10)
+          {
+            document.writeln("<p>While loop</p>");
+          }
+           
+          for(var i = 1; var <= 10; i++)
+          {
+            document.writeln("<p>i: ", square(i), "</p>")
+          }
+          function square(x)
+          {
+            var y = x + x;
+            return x+x;
+          }
         </script>
     </head>
     <body>
-        <!-- If something breaks, debug it by yourself. #weird -->
     </body>
 </html>
