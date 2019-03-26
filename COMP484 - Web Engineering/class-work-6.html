@@ -36,18 +36,33 @@
                     }
             }
             
-            average = total / gradeCount;
-            document.write("<p>Average is ", average, "</p>")
-            if (average > 90)
-                document.writeln("<p>Average is A</p>")
-            else if (average > 80)
-                document.writeln("<p>Average is B</p>")
-            else if (average > 70)
-                document.writeln("<p>Average is C</p>")
-            else if (average > 60)
-                document.writeln("<p>Average is D</p>")
-            else
-                document.write("<p>gradeCount is 0, no valid value entered</p>");
+            if(gradeCount != 0)
+            {
+                average = total / gradeCount;
+                document.write("<p>Average is ", average, "</p>")
+                if (average > 90)
+                    document.writeln("<p>Average is A</p>")
+                else if (average > 80)
+                    document.writeln("<p>Average is B</p>")
+                else if (average > 70)
+                    document.writeln("<p>Average is C</p>")
+                else if (average > 60)
+                    document.writeln("<p>Average is D</p>")
+                else
+                    document.write("<p>gradeCount is 0, no valid value entered</p>");
+            }
+                        
+            for(var i=0; i<10; i++)
+            {
+                var z = i + i;
+                let y = i + 3;
+                i += 2;
+                document.writeln("<p>z : ", z , "</p>");
+                document.writeln("<p>y : ", y , "</p>");
+            }
+            
+            document.writeln("<p>Outside of the loop", z , "</p>");
+            document.writeln("<p>Outside of the loop", y , "</p>");
         </script>
     </head>
     <body>
