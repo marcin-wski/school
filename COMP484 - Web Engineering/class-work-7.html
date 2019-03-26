@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Menu </title>
+        <style type="text/css">
+          table { border: 2px black solid }
+          tr:nth-child(odd) { background-color: powderblue;}
+          tr:nth-child(even) { background-color: lightgrey; }
+          tr:nth-child(2) { color:red; background-color: initial;}
+        </style>
+        <script type="text/javascript">
+          var style;
+          var choice = windows.prompt("Enter list type: 1-numbered, 2-alpha, 3-roman", "1")
+            switch(choice)
+            {
+              case "1":
+                style="";
+                break;
+              case "2":
+                style="upper-alpha";
+                break;
+              case "3":
+                style="upper-roamn";
+                break;
+              default:
+                error = "<p>Invalid input</p>";
+            }
+          var markup("<ol style='list-style-type:" + style +"'><li>apple</li><li>banana</li><li>orange</li></ol>";
+          document.writeln(markup);
+        </script>
+    </head>
+    <body>
+        <!-- If something breaks, debug it by yourself. #weird -->
+    </body>
+</html>
