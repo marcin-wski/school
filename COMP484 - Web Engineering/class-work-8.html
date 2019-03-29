@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Menu </title>
+        <style type="text/css">
+          table { border: 2px black solid }
+          tr:nth-child(odd) { background-color: powderblue;}
+          tr:nth-child(even) { background-color: lightgrey; }
+          tr:nth-child(2) { color:red; background-color: initial;}
+        </style>
+        <script type="text/javascript">
+          var a = parseFloat(window.prompt("Enter 1st floating number: "));
+          var b = parseFloat(window.prompt("Enter 2nd floating number: "));
+          var c = parseFloat(window.prompt("Enter 3rd floating number: "));
+          document.writeln("<p>The max is: " , maximum(a, b, c), "</p>";
+          document.writeln("<p>a:" , a, "</p>");
+          document.writeln("<p>x:" , x, "</p>");
+          
+          function maximum()
+          {
+            var d = a;
+            var e = b;
+            var f = c;
+            
+            var i = Math.max(d, e);
+            return Math.max(i, f);
+            
+          }
+          
+          var img1 = document.getElementById("d1");
+          var img1 = document.getElementById("d2");
+          var img1 = document.getElementById("d3");
+          var img1 = document.getElementById("d4");
+          document.writeln("<p>, img1.getAttribute("src"), "</p>");
+        </script>
+    </head>
+    <body>
+      <img id="d1" src="die1.png">
+      <img id="d2" src="die2.png">
+      <img id="d3" src="die3.png">
+      <img id="d4" src="die4.png">
+      
+      <form action="#">
+        <button type="button">Roll dice
+        </button>
+      </form>
+    </body>
+</html>
