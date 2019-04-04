@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Menu </title>
+        <style type="text/css">
+        </style>
+        <script type="text/javascript">
+          function start()
+          {
+            var rollbtn = document.getElementById("rollButton");
+            var img1 = document.getElementById("d1");
+            var img2 = document.getElementById("d2");
+            var img3 = document.getElementById("d3");
+            var img4 = document.getElementById("d4");
+            img1.setAttribute("src", "die3.png");
+            rollbtn.addEventListener("click", rollDice, false);
+          }
+          
+          function rollDice()
+          {
+            setImage(img1);
+            setImage(img2);
+            setImage(img3);
+            setImage(img4);
+          }
+          
+          function setImage(dieImg)
+          {
+            var dieValue = (Math.random()*6 + 1);
+            dieImg.setAttribute("src","die"+dieValue+".png");
+          }
+          var img1;
+          var img2;
+          var img3;
+          var img4;
+          var par;
+          
+          window.addEventListener("load", start, false);
+          
+        </script>
+    </head>
+    <body>      
+      <form action="#">
+        <button type="button">Roll dice
+        </button>
+      </form>
+      <img id="d1" src="die1.png">
+      <img id="d2" src="die2.png">
+      <img id="d3" src="die3.png">
+      <img id="d4" src="die4.png">
+      <p id="p1">Hi</p>
+    </body>
+</html>
