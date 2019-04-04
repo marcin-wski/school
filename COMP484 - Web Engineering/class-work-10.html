@@ -1,0 +1,124 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Menu </title>
+        <style type="text/css">
+        </style>
+        <script type="text/javascript">
+          var result1;
+          var result2;
+          function start()
+          {
+            result1 = document.getElementById("div1");
+            result2 = document.getElementById("div2");
+            sbtn = document.getElementById("searchbtn");
+            sbtnlast = document.getElementById("searchlast btn");
+            
+            sbtn.addEventListener("click", searchNum, false);
+            sbtnlast.addEventListener("click", searclasthNum, false);
+            
+            result1.innerHTML += "<p>Elements of c[]: "+ c.toString() +"</p>";
+            var a = new Array(5);
+            for(var i = 0; i <= 4; i++)
+            {
+              a[i] = i;
+              result1.innerHTML += "<p>a["+i+"] is "+a[i]+"</p>";
+            }
+          
+            a[10] = 10;
+            result1.innerHTML += "<p>a["+10+"] is "+a[10]+"</p>";
+            result1.innerHTML += "<p>a["+20+"] is "+a[20]+"</p>";
+          
+            var b = new Array();
+            for(var i = 0; i <= 5; i++)
+            {
+              a[i] = i;
+              result1.innerHTML += "<p>a["+i+"] is "+b[i]+"</p>";
+            }
+          
+            var c = [20, 10, 30, 60, 40, 100];
+            c[8] = 1000;
+            var d = new Array(2, 4, 5, 6, 7);
+            for(var i = 0; i <= 5; i++)
+            {
+              result1.innerHTML += "<p>a["+i+"] is "+d[i]+"</p>";
+            }
+            
+            for(var i = 0; i <= c.lenght-1; i++)
+            {
+              total += c[i];
+            }
+            result1.innerHTML += "<p>totalsum of c[] is "+total+"</p>";
+            
+            for(var i in c)
+            {
+              result1.innerHTML += "<p>i: "+i+", c[] is "+c[i]+"</p>";
+              total += c[i];
+            }
+            
+            c.sort();
+            for(var i = 0; i <= 5; i++)
+            {
+              result1.innerHTML += "<p>a["+i+"] is "+c[i]+"</p>";
+            }
+            result1.innerHTML += "<p>Elements of c[]: "+ c.join() +"</p>";
+            result1.innerHTML += "<p>Elements of c[]: "+ c.join("and") +"</p>";
+            result1.innerHTML += "<p>Elements of c[]: "+ c.toString() +"</p>";
+            
+            mult(c);
+            result1.innerHTML += "<p>Elements of c[]: "+ c.toString() +"</p>";
+            modifyElement( c[0] );
+            result1.innerHTML += "<p>c[0]: "+ c[0] +"</p>";
+          }
+          
+          function mult(myarray)
+          {
+            var sum = 0;
+            for(var i in myarray)
+            {
+              myarray[i] *= 2;
+            }
+          }
+          
+          function modifyElement(num)
+          {
+            num *= 2;
+            result1.innerHTML += "<p>num is "+ num +"</p>";
+          }
+          
+          function sum(theArray)
+          {
+            var sum = 0;
+            for(var i in theArray)
+            {
+              result1.innerHTML += "<p>i: "+i+", theArray[i] is "+theArray[i]+"</p>";
+            }
+          }
+          
+          function inSort(a, b)
+          {
+            return a-b;
+          }
+          
+          function searchNum()
+          {
+            var skey = parseInt(inNum.value);
+            result1.innerHTML += "<p>SearchNum</p>";
+            result1.innerHTML += "<p>Elements of c[]: "+ c.join() +"</p>";
+            var position = c.index01(key);
+            result1.innerHTML += "<p>positiong of: "+skey+" in array c is "+position+"</p>";
+          }
+          
+          window.addEventListener("load", start, false);
+        </script>
+    </head>
+    <body>
+      <form>
+        <label>Enter an integer to search the array c for it
+        <input id="number" type="number" name="num"></input></label>
+        <input id="searchbtn" type="button" name="search" value="search">
+      </form>
+      <div id="div1"></div>
+      <div id="div2"></div>
+    </body>
+</html>
