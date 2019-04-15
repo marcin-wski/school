@@ -1,0 +1,73 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Dice Roll</title>
+        <style type="text/css">
+        </style>
+        <script type="text/javascript">
+        //Create an HTML file with embedded JS. Put the html and images in a directory, zip it and upload the zip file. Both the initial HTML file and the ZIP file should have your name in the title. 
+          
+          var imgFileNames = [];
+          var imgObjects = [];
+
+          //Roll 10 dice, using arrays.
+          function start()
+          {
+            //Define an array of 10 elements called "imgObjects" where each element is an object reference to one of the html <img> elements. 
+            var img1 = document.getElementById("d1");
+            var img2 = document.getElementById("d2");
+            var img3 = document.getElementById("d3");
+            var img4 = document.getElementById("d4");
+            var img5 = document.getElementById("d5");
+            var img6 = document.getElementById("d6");
+            var img7 = document.getElementById("d7");
+            var img8 = document.getElementById("d8");
+            var img9 = document.getElementById("d9");
+            var img10 = document.getElementById("d10");
+            imgObjects = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10];
+            //Define an array of 6 string elements called "imgFileNames" where each element is a file name, for example, the value in imgFileNames[0] would be "die1.png"
+            imgFileNames = ["die1.png", "die2.png", "die3.png", "die4.png", "die5.png", "die6.png"];
+
+            var rollbtn = document.getElementById("rollButton");
+
+            img1.setAttribute("src", "die3.png");
+            rollbtn.addEventListener("click", rollDice, false);
+          }
+           
+          //Rewrite function rollDice, to accept an array as the argument and use a for..in loop in the function to call setImage function for each element of the array. 
+          function rollDice()
+          {
+            var i;
+
+            for(i in imgObjects)
+            {
+              setImage(i);
+            }
+          }
+          
+          function setImage(dieImg)
+          {
+            var dieValue = imgFileNames[Math.floor(Math.random() * imgFileNames.length)];
+            imgObjects[dieImg].setAttribute("src", dieValue);
+          }
+          
+          window.addEventListener('load', start, false);
+          
+        </script>
+    </head>
+    <body>  
+        <img id="d1" src="die1.png" width=9%>
+        <img id="d2" src="die2.png" width=9%>
+        <img id="d3" src="die3.png" width=9%>
+        <img id="d4" src="die4.png" width=9%> 
+        <img id="d5" src="die1.png" width=9%>
+        <img id="d6" src="die1.png" width=9%>
+        <img id="d7" src="die1.png" width=9%>
+        <img id="d8" src="die1.png" width=9%>
+        <img id="d9" src="die1.png" width=9%>
+        <img id="d10" src="die1.png" width=9%>
+        <form action="#">
+            <button id="rollButton" type="button">Roll dice</button>
+        </form>
+    </body>
+</html>
