@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Menu</title>
+        <style type="text/css">
+        </style>
+        <script type="text/javascript">
+          var result1;
+          var result2;
+          function dates()
+          {
+            result1 = document.getElementById("div1");
+            result2 = document.getElementById("div2");
+            var current = new Date();
+            result1.innerHTML += "<p>current date/time: "+current+"</p>";
+            var anotherDate = new Date(1920, 2, 18, 1, 5, 0, 0);
+            result1.innerHTML += "<p>another date: "+anotherDate+"</p>";
+            var anotherDate2 = new Date(1978121106868);
+            result1.innerHTML += "<p>anotherDate2: "+anotherDate+"</p>";
+            result1.innerHTML += "<p>toString: "+anotherDate2.toString()+"</p>";
+            result1.innerHTML += "<p>toUTCString: "+anotherDate2.toUTCString()+"</p>";
+            result1.innerHTML += "<p>toLocaleString: "+anotherDate2.toLocaleString()+"</p>";
+            result1.innerHTML += "<p>valueOf: "+anotherDate2.valueOf+"</p>";
+            result1.innerHTML += "<p>getTime: "+anotherDate2.getTime()+"</p>";
+            result1.innerHTML += "<p>getTime: "+Date.parse("Thu Mar 18 2019 01:05:00 GMT")+"</p>";
+            result1.innerHTML += "<p>getYear: "+current.getFullYear()+"</p>";
+            result1.innerHTML += "<p>getMonth: "+current.getMonth()+"</p>";
+            result1.innerHTML += "<p>getHours: "+current.getHours()+"</p>";
+            result1.innerHTML += "<p>getUTCHours: "+current.getUTCHours()+"</p>";
+            result1.innerHTML += "<p>getYear: "+current.getYear()+"</p>";
+            result1.innerHTML += "<p>getMS: "+current.getMiliseconds()+"</p>";
+            result1.innerHTML += "<p>toString: "+current.toString()+"</p>";
+            result1.innerHTML += "<p>setYearTo2050: "+current.toString()+"</p>"; //??????
+            result1.innerHTML += "<p>getDate: "+current.getDate()+"</p>";
+            result1.innerHTML += "<p>getUTCDate: "+current.getUTCDate()+"</p>";
+            
+            var mystr = "hello";
+            var x = 15;
+            
+            mystr.toUpperCase();
+            String.fromCharCode(100, 101, 102);
+            var b = new Boolean(true);
+            result1.innerHTML += "<p>Boolean b: "+b+"</p>";
+            var c = new Boolean(parseInt(mysetr));
+            result1.innerHTML += "<p>Boolean c: "+c+"</p>";
+        }
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>
