@@ -1,0 +1,58 @@
+<html>
+<head>
+  <title>Twitter Searches</title>
+  <style type="text/css">
+  </style>
+  <script type="text/javascript">
+    var tests;
+    function start()
+    {
+      test = document.getElementById("tests");
+      var saveButton = document.getElementById("saveButton");
+      var clearButton = document.getElementById("clearButton");
+      saveButton.addEventListener("click", saveSearch, false);
+      clearButton.addEventListener("click", clearAllSearches, false);
+      loadSearches;
+    }
+    
+    function saveSearch()
+    {
+      var query1 = document.getElementById("query").value;
+      var tag1 = document.getElementById("tag").value;
+      localStorage.setItem(tag1, query1);
+      
+      tests.innerHTML+="<p>"localStorage.length: "+localStorage.length+"</p>";
+      tests.innerHTML+="<p>"localStorage.length: "+localStorage.getItem(tag1)+"</p>";
+    }
+    
+    function clearAllSearches()
+    {
+      localStorage.clear();
+    }
+    
+    function loadSearches()
+    {
+    
+    }
+    
+    window.addEventListener("load", start, false);
+  </script>
+</head>
+<body>
+  <h1>Favorite Twitter Searches</h1>
+  <p id="WelcomeMessage"></p>
+  <form action="#">
+    <p>
+      <input id = "query" type = "text" placeholder = "Enter Twitter search query">
+    </p>
+    <p>
+      <input id = "tag" type = "text" placeholder = "Tag your query">
+      <input type = "button" value = "Save" id = "saveButton">
+      <input type = "button" value = "Clear All Saved Searches" id = "clearButton">
+    </p>
+  </form>
+  <h1>Previously Tagged Searches</h1>
+  <div id = "searches"></div>
+  <div id = "tests"></div>
+</body>
+</html>
