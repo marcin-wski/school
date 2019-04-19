@@ -2,6 +2,13 @@
 <head>
   <title>Twitter Searches</title>
   <style type="text/css">
+    input[type=text] {width:200px;}
+    ul {list-style-type:none; width:150px}
+    ul {list-style-type:none;}
+    li:nth-child(even) {background-color:powderblue;}
+    li:nth-child(odd) {background-color:lightgrey;}
+    li a {text-decoration:none;}
+    span {width:100px; display:inline-block;}
   </style>
   <script type="text/javascript">
     var tests;
@@ -20,9 +27,11 @@
       var query1 = document.getElementById("query").value;
       var tag1 = document.getElementById("tag").value;
       localStorage.setItem(tag1, query1);
+      document.getElementById("query").value="";
+      document.getElementById("tag").value="";
       
-      tests.innerHTML+="<p>"localStorage.length: "+localStorage.length+"</p>";
-      tests.innerHTML+="<p>"localStorage.length: "+localStorage.getItem(tag1)+"</p>";
+      tests.innerHTML+="<p>localStorage.length: "+localStorage.length+"</p>";
+      tests.innerHTML+="<p>localStorage.key(0): "+localStorage.key(0)+"</p>";
     }
     
     function clearAllSearches()
@@ -32,7 +41,40 @@
     
     function loadSearches()
     {
+      var results;
+      if(!session.Storage.getItem("herePreviously"))
+      {
+        document.getElementById("welcomeMessage).innerHTML+="welcome to a new session";
+        sessionStorage.setItem("herePreviously", "true");
+      }
+      for(var i=0; i < localStorage.length; i++)
+      {
+        results+="<p>key: "+localStorage.key(i)+" value: "+localStorage.getItem(localStorage.key(i))+"</p>";
+      }
+      tests.innerHTML = results;
+      
+      var res="<ul>";
+      var url="https://twitter.com/search?q=";
+      for(i=0; i< localStorage.length; i++);
+      {
+        query = localStorage.getItem(localStorage.key(i));
+        query.replace(" ", "%20");
+        query.replace("#", "%23");
+        res+="<li><span><a href='"+url+query+"'>"+localStorage.key(i)+"</a></span>"+"<input id='"+localStorage.key(i)+"' type=button value='edit' onclick='editTag'>"+"<input id='"+localStorage.key(i)+"'type=button value='delete' onlick='deleteTag'>"+"</li>";
+      }
+      
+      res+="</ul>";
+      searches.innerHTML = res;
+    }
     
+  function editTag()
+    {
+      
+    }
+  function deleteTag()
+    {
+      localStorage.removeTag(tag);
+      loadSearches();
     }
     
     window.addEventListener("load", start, false);
