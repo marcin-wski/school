@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Error</title>
+        <style type="text/css">
+            div {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            img {
+                display: inline-block;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            span {
+                display: inline-block;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .button {
+                display: inline-block;
+                float: right;
+                text-align: center;
+                font-size: 25px;
+                width: 200px;
+                cursor: pointer;
+                background-color: rgb(151, 151, 151);
+                box-shadow: 0 5px #666;
+            }
+            .button:hover {
+                background-color: #737473;
+            }
+            .button:active {
+                background-color: rgb(151, 151, 151);;
+                box-shadow: 0 5px #666;
+                transform: translateY(4px);
+            }
+        </style>
+        <script type="text/javascript">
+        </script>
+    </head>
+    <body>
+        <div>
+            <img src="error.png" width="20%">
+            <span>
+                <h1>BLOCKED</h1>
+                <p>One or more sites you visited have been blacklisted</p>
+                <p>Please complete your task or wait for your assigned break</p>
+            </span>
+        </div>
+        <p></p>
+        <button class=button type="button" onclick="windowClose();">Close</button> <!--this doesn't actually work-->
+    </body>
+</html>
