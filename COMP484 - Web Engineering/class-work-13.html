@@ -1,0 +1,26 @@
+<html>
+<head>
+  <title>
+  <style>
+  </style>
+  <script>
+    function start()
+    {
+      var result = document.getElementById("results");
+      var jsontr="{"name":{"firstName":"John","lastName":"Smith"},"address":"1010 new street","phone":"123-4567890","interests":""}"
+      var jsObject = JSON.parse(jsontr);
+      result.innerHTML = "FirstName: "+jsObject.name.firstName+"<br>"+" address: "+jsObject.address+"<br>"+" name: "+jsObject.name+"<br>";
+      
+      jsObject.name.firstName = "Mary";
+      jsObject.name.lastName = "Jones";
+      var newstr = JSON.stringify(jsObject);
+      
+      result.innerHTML += "modified object: "+newstr;
+    }
+    window.addEventListener("load", start, false);
+  </script>
+</head>
+<body>
+
+</body>
+</html>
