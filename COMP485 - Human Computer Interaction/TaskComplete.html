@@ -1,0 +1,79 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>TaskComplete</title>
+        <style type="text/css">
+        .button {
+            display: inline-block;
+            float: right;
+            text-align: center;
+            font-size: 25px;
+            width: 200px;
+            cursor: pointer;
+            background-color: rgb(151, 151, 151);
+            box-shadow: 0 5px #666;
+        }
+        .button:hover {
+            background-color: #737473;
+        }
+        .button:active {
+            background-color: rgb(151, 151, 151);;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+        }
+        .congratz {
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+        img {
+            display: inline-block;
+        }
+        .announcement {
+            display: inline-block;
+        }
+        .textbox {
+            margin: auto;
+            border: 3px solid black;
+            padding: 10px;
+            width: 40%
+        }
+        .left {
+            float: left;
+        }
+        .right {
+            float: right;
+        }
+        h2 {
+            text-align: center;
+        }
+        p {
+            margin: auto;
+        }
+        form {
+            padding: 5em;
+        }
+        </style>
+        <script type="text/javascript">
+        </script>
+    </head>
+    <body>
+            <div class="congratz">
+                <img src="finished.png" width="10%">
+                <h1 class="announcement">Congratulations! You have finished your task!</h1>
+            </div>
+            <div class="textbox" style="clear:both;">
+                <h2>Summary</h2>
+                <p><span>Scheduled Tasks</span><span class="right">12:00pm-4:00pm</span></p>
+                <p><span>Breaks</span><span class="right">2:00pm-2:15pm</span></p>
+                <p><span>Blacklisted Sites</span><span class="right">www.instagram.com</span></p>
+                <p><span>Error Count</span><span class="right">1</span></p>
+            </div>
+
+            <form action="Welcome.html">
+                <input class="button" id="nextButton" type="submit" value="New Task"></input>
+                <input class="button" id="applyButton" type="button" value="Done" onclick=closeWindow()></input>
+            </form>
+            <p><p>&nbsp;</p></p>
+    </body>
+</html>
