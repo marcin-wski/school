@@ -1,0 +1,138 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Settings</title>
+        <style type="text/css">
+            .instructions {
+                padding: 2em;
+	            width: 30%;
+                border: 3px;
+                border-style: solid;
+                border-color: black;
+                display: block;
+                font-size: 25px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .daysChoice {
+                padding: 2em;
+	            width: 30%;
+                border: 3px;
+                border-style: solid;
+                border-color: black;
+                font-size: 25px;
+            }
+            .setupDays {
+                font-size: 25px;
+            }
+            .button {
+                display: inline-block;
+                float: right;
+                text-align: center;
+                font-size: 25px;
+                width: 200px;
+                cursor: pointer;
+                background-color: rgb(151, 151, 151);
+                box-shadow: 0 5px #666;
+            }
+            .button:hover {
+                background-color: #737473;
+            }
+            .button:active {
+                background-color: rgb(151, 151, 151);;
+                box-shadow: 0 5px #666;
+                transform: translateY(4px);
+            }
+            .time {
+                display: inline-block;
+                margin-left: auto;
+                margin-right: auto;
+                text-align: center;
+                font-size: 15px;
+                height: 50;
+                width: 100px;
+            }
+            .dayTimes {
+                margin-left: auto;
+                margin-right: auto;
+                text-align: center;
+            }
+            h2 {
+                margin-left: auto;
+                margin-right: auto;
+                text-align: center;
+                text-decoration: underline;
+            }
+        </style>
+        <script type="text/javascript">
+
+            function alertBlocked() {
+                var hoursChosenStart = document.getElementById("hoursChosenStart").value;
+                var minutesChosenStart = document.getElementById("minutesChosenStart").value;
+                var ampmChoiceStart = document.querySelector('input[name="start"]:checked').value;
+                var hoursChosenEnd = document.getElementById("hoursChosenEnd").value;
+                var minutesChosenEnd = document.getElementById("minutesChosenEnd").value;
+                var ampmChoiceEnd = document.querySelector('input[name="end"]:checked').value;
+
+                var hoursBreaksChosenStart = document.getElementById("hoursBreaksChosenStart").value;
+                var minutesBreaksChosenStart = document.getElementById("minutesBreaksChosenStart").value;
+                var ampmBreaksChoiceStart = document.querySelector('input[name="breaksstart"]:checked').value;
+                var hoursBreaksChosenEnd = document.getElementById("hoursBreaksChosenEnd").value;
+                var minutesBreaksChosenEnd = document.getElementById("minutesBreaksChosenEnd").value;
+                var ampmBreaksChoiceEnd = document.querySelector('input[name="breaksend"]:checked').value;
+
+                var daysChoice = document.querySelector('input[name="weekDays"]:checked').value;
+                confirm("SAVED! \n Your settings have been applied and saved: \n Time:\n    > Task: "+hoursChosenStart+":"+minutesChosenStart+ampmChoiceStart+" to "+hoursChosenEnd+":"+minutesChosenEnd+ampmChoiceEnd+"\n    > Breaks: "+hoursBreaksChosenStart+":"+minutesBreaksChosenStart+ampmBreaksChoiceStart+" to "+hoursBreaksChosenEnd+":"+minutesBreaksChosenEnd+ampmBreaksChoiceEnd+"\n Profiles Applied:\n    > "+daysChoice);
+            }
+
+            window.addEventListener("load", start, false);
+        </script>
+    </head>
+    <body>
+            <p class="instructions">
+                Set your task schedule and your breaks.
+            </p>
+            <h2>Time:</h2>
+            <p class=dayTimes>
+                <input id="hoursChosenStart" class="time" type = "text" placeholder = "eg. 1, 4, 5 etc"> :
+                <input id="minutesChosenStart" class="time" type = "text" placeholder = "eg. 15, 45 etc">
+                <input id="ampmChoiceStart" type="radio" name="start" value="AM">AM
+                <input id="ampmChoiceStart" type="radio" name="start" value="PM">PM
+                <span style="font-size:25px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <input id="hoursChosenEnd" class="time" type = "text" placeholder = "eg. 1, 4, 5 etc"> :
+                <input id="minutesChosenEnd" class="time" type = "text" placeholder = "eg. 15, 45 etc">
+                <input id="ampmChoiceEnd" type="radio" name="end" value="AM">AM
+                <input id="ampmChoiceEnd" type="radio" name="end" value="PM">PM
+            </p>
+            <p></p>
+            <h2>Breaks:</h2>
+            <p class=dayTimes>
+                <input id="hoursBreaksChosenStart" class="time" type = "text" placeholder = "eg. 1, 4, 5 etc"> :
+                <input id="minutesBreaksChosenStart" class="time" type = "text" placeholder = "eg. 15, 45 etc">
+                <input id="ampmBreaksChoiceStart" type="radio" name="breaksstart" value="AM">AM
+                <input id="ampmBreaksChoiceStart" type="radio" name="breaksstart" value="PM">PM
+                <span style="font-size:25px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <input id="hoursBreaksChosenEnd" class="time" type = "text" placeholder = "eg. 1, 4, 5 etc"> :
+                <input id="minutesBreaksChosenEnd" class="time" type = "text" placeholder = "eg. 15, 45 etc">
+                <input id="ampmBreaksChoiceEnd" type="radio" name="breaksend" value="AM">AM
+                <input id="ampmBreaksChoiceEnd" type="radio" name="breaksend" value="PM">PM
+            </p>
+            <p class="setupDays">
+                Save current settings to a profile:
+            </p>
+            <div class="daysChoice">
+                <p><input type="radio" name="weekDays" value="Monday">Monday</p>
+                <p><input type="radio" name="weekDays" value="Tuesday">Tuesday</p>
+                <p><input type="radio" name="weekDays" value="Wednesday">Wednesday</p>
+                <p><input type="radio" name="weekDays" value="Thursday">Thursday</p>
+                <p><input type="radio" name="weekDays" value="Friday">Friday</p>
+                <p><input type="radio" name="weekDays" value="Saturday">Saturday</p>
+                <p><input type="radio" name="weekDays" value="Sunday">Sunday</p>
+            </div>
+            <form action="Settings.html">
+                <input class="button" id="nextButton" type="submit" value="Next"></input>
+                <input class="button" id="applyButton" type="button" value="Apply" onclick=alertBlocked()></input>
+            </form>
+            <p><p>&nbsp;</p></p>
+    </body>
+</html>
