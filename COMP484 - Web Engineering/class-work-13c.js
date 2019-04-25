@@ -15,6 +15,16 @@ function byId()
   if(target)
     switchto(target);
 }
+function currentNewNode(text)
+{
+  var newNode = document.createElement("p");
+  ++idcount;
+  var nodeId="new"+idcount;
+  newNode.setAttribute("id",nodeId);
+  var textNode = document.createTextNode("["+nodeId+"]"+text);
+  newNode.appendChild(textNode);
+  return newNode;
+}
 function switchto(newNode)
 {
   currentNode.setAttribute("class", "");
@@ -24,11 +34,17 @@ function switchto(newNode)
 }
 function insert()
 {
-
+  var typedText = document.getElementById("ins").value;
+  var newP = document.createNewNode(typedText);
+  currentNode.parentNode.insertBefore(newP,currentNode);
+  switchto(newP);
 }
 function appendNode()
 {
-
+  var typedText = document.getElementById("append").value;
+  var newP = document.createNewNode(typedText);
+  currentNode.appendChild(newP);
+  switchto(newP);
 }
 function replaceCurrent()
 {
