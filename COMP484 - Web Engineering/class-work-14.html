@@ -1,0 +1,47 @@
+<html>
+<head>
+</head>
+<body>
+  <h1>PHP Page</p>
+  <?php
+  $name="Paul";
+  $myDouble=12.45;
+  $myInt=14;
+  $myStr="3.5 second";
+  echo "<p>Hello $name!</p>";
+  echo '<p>Hello $name!</p>';
+  echo "<p>"type of myInt is".gettype($myInt)."</p>";
+  echo "<p>"type of myDouble is".gettype($myDouble)."</p>";
+  echo "<p>"type of myStr is".gettype($myStr)."</p>";
+  settype($myInt,"string");
+  echo "<p>"type of myInt is".gettype($myInt)." and the value: $myInt</p>";
+  settype($myStr,"integer");
+  echo "<p>"type of myStr is".gettype($myStr)." and the value is: $myStr</p>";
+  echo "<p>"casting myStr to doubler ".(double)$myStr." and the value: $myStr</p>";
+  
+  if("1"===1)
+    echo "<p>true, 1===1</p>";
+  else
+    echo "<p>false, 1!==1</p>";
+  
+  $myArray[0] = "hi";
+  $myArray[2] = "bye";
+  $myArray[4] = "apple";
+  $myArray[] = "banana";
+  
+  echo "<p>".count($myArray)."</p>";
+  for ($i=0;$i<6;$i++)
+    echo "<p>myArray[$i]: $myArray[$i]</p>";
+    
+  $numbers = array("zero", "one", "two", "three");
+  for ($i=0;$i<count($numbers);$i++)
+    echo "<p>numbers[$i]: $numbers[$i]</p>";
+  
+  $days = array("first" => "Monday", "second" => "Tuesday", "third" => "Wednesday", "fourth" => "Thursday");
+  echo "<p>days count: ".count($days)."</p>";
+  echo "<p>days[third]: ".$days["third"]."</p>";
+  
+  var_dump($days);
+  ?>
+</body>
+</html>
