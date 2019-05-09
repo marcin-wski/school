@@ -1,5 +1,6 @@
 <html>
 <head>
+  <title></title>
 </head>
 <body>
   <h1>PHP Page</p>
@@ -42,6 +43,44 @@
   echo "<p>days[third]: ".$days["third"]."</p>";
   
   var_dump($days);
+
+  $cast=array(
+    1=>"a",
+    "1"=>"b",
+    1.5=>"c",
+    true=>"d");
+  echo "<p>".count($cast)."</p>";
+  var_dump($cast);
+
+  foreach($days as $key => $value)
+    echo("<p>days[ $key ]: $value </p>");
+  echo "======================================================";
+  foreach($days as $i)
+    echo("<p>$i</p>");
+  
+  $fruits=array("apple", "banana", "orange")
+  foreach($fruits as $fruit)
+    if(strcmp($fruit, "banana") < 0)
+      echo "<p>$fruit < banana</p>";
+    elseif(strcmp($fruit, "banana") == 0)
+      echo "<p>$fruit == banana</p>";
+    else
+      echo "<p>$fruit > banana</p>";
+
+  foreach($_POST as $key => $value)
+    echo("<p>days[ $key ]: $value </p>");
+    echo("<p>Welcome ".$_POST["fname"]."</p>");
+    if(preg_match("/^\([0-9]{3}\) [0-9]{3}-[0-9]{3}
+      echo("<p>Phone number has correct format</p>");
+    else
+      echo("<p>Phone number has bad format</p>");
+    if(filter_var($_POST["email"], FILTER_VALIDATE_EMAIL))
+      echo("<p>good email format</p>");
+    else
+      echo("<p>bad email format</p>");
+    echo "==================================================";
+    var_dump($_SERVER);
+
   ?>
 </body>
 </html>
