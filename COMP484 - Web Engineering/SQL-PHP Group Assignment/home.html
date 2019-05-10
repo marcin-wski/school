@@ -1,0 +1,91 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Home Page</title>
+		<style type="text/css">
+		
+        </style>
+        <script type="text/javascript">
+        function passMatch()
+        {
+            password = document.getElementById("password");
+            newPassword = document.getElementById("retype_pass");
+            
+            noMatch = document.getElementById("nomatch");
+            
+            if (password != newPassword)
+                noMatch.html("Passwords do not match!"); //will still need to add the red font color, but that's later
+        }
+        
+        $(document).ready(
+            function ()
+            {
+                newPassword.keyup(passMatch);
+            }
+        );
+        
+        //trying to use something similar to https://jsfiddle.net/rpP4K/
+        
+        </script>
+    </head>
+    <body>
+	<header>
+	
+	</header>
+        <form method="post" action="login.php"> <!--clicking submit sends the data the login.php file on the server-->
+            <h1>Registered Users:</h2>
+            <p>
+                <label>Username
+                    <input type="text" name="username" size="5" maxlenght="10" placeholder="user"> <!--username submission with a simple placeholder to guide the user-->
+                </label>
+            </p>
+            <p>
+                <label>Password
+                    <input label="password" atype="submit" name="submit"> <!--Input type "password" specifically for password fields-->
+                </label>
+            </p>
+            <input type="submit" name="login" value="Log in"> <!-- for now unsure if "formnovalidate" should be included-->
+        </form>
+        
+        <form method="post" action="signup.php"> <!--clicking submit sends the data the signup.php file on the server-->
+            <h1>New Users:</h2>
+            <p>
+                <label>First name
+                    <input type="text" name="firstname" size="5" maxlenght="10" placeholder="John"> <!--First name submission box-->
+                </label>
+            </p>
+            <p>
+                <label>Last name
+                    <input type="text" name="lastname" size="10" maxlenght="25" placeholder="Smith"> <!--Last name submission box-->
+                </label>
+            </p>
+            <p>
+                <label>Phone
+                    <input type="tel" name="tel" placeholder="(###) ###-####"> <!--tel type for the Phone submission box, with placeholder showing how to submit it-->
+                </label>
+            </p>
+            <p>
+                <label>Email
+                    <input type="email" name="email" placeholder="john.smith@gmail.com"> <!--Email type for email submission box-->
+                </label>
+            </p>
+            <p>
+                <label>Username
+                    <input type="text" name="username" size="5" maxlenght="10" placeholder="jsmith"> <!--username submission with a simple placeholder to guide the user-->
+                </label>
+            </p>
+            <p>
+                <label>Password
+                    <input id="password" label="password" atype="submit" name="submit"> <!--Input type "password" specifically for password fields-->
+                </label>
+            </p>
+            <p>
+                <label>Retype password
+                    <input id="retype_pass" label="Retype password" atype="submit" name="submit" keyup="passMarch();"><span id="nomatch"> <!--Need to check if the passwords actually match-->
+                </label>
+            </p>
+            <p>
+            <input type="submit" name="login" value="Log in">
+        </form>            
+    </body>
+</html>
