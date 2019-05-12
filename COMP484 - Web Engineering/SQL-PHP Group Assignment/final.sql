@@ -8,6 +8,8 @@ CREATE USER 'webphp'@'localhost' IDENTIFIED BY 'password';
 
 create database finaldb;
 
+grant all privileges on finaldb.* to 'webphp'@'localhost';
+
 use finaldb;
 
 create table auth(userid INT AUTO_INCREMENT, username varchar(60), password varchar(60), firstName varchar(60), lastName varchar(60), email varchar(60), phone varchar(60), primary key(userid));
