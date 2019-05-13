@@ -158,49 +158,31 @@ for($i=0;$i<1;$i++)
 
 //DATABASES
 //connecting to a database
-$dbPassword = "password";
-$dbUsername = "webphp";
-$dbServer = "localhost";
-$dbName = "Pluralsight";
-
-$connection = new mysqli($dbServer,$dbUsername,$dbPassword,$dbName);
-if($connection -> connect_errno)
-{
-    echo "Database connection failed. Reason: ".$connection->connect_error;
-}
-else
-{
-    echo "\nConnected to the database ".$dbName."\n";
-    echo "The work begins!\n";
-}
+$connection = mysqli_connect("localhost","webphp","password");
+mysqli_select_db($connection,"Pluralsight");
 
 //executing a query
 $insertTwain = "insert into Authors(first_name,last_name) values ('Mart','Twain')"; //insert
-$connection->query($insertTwain);
+$inserting = mysqli_query($connection,$insertTwain);
 $updateTwain = "update Authors set first_name = 'Mark' where last_name = 'Twain'"; //update
-$connection->query($updateTwain);
+$updating = mysqli_query($connection,$updateTwain);
 $insertSecond = "insert into Authors(first_name,last_name) values ('Test','ToBeDeleted')"; //insert just to test the delete queries
-$connection->query($insertSecond);
+$insertingSecond = mysqli_query($connection,$insertSecond);
 
 echo "Newly created author id: ".$connection->insert_id."\n"; //grab the inserted id
 
 $deleteAllAfterFirst = "delete from Authors where authorid>19"; //deleting all except for the Mart Twain we just inserted first
-$connection->query($deleteAllAfterFirst);
+$deleting = mysqli_query($connection,$deleteAllAfterFirst);
 
 $selectOrderByName = "select first_name, last_name from Authors order by first_name";
-$resultOfSelect = $connection->query($selectOrderByName);
-
-if($resultOfSelect->num_rows>0)
+$resultOfSelect = mysqli_query($connection,$selectOrderByName);
+while($singleRow = mysqli_fetch($resultOfSelect))
 {
-    while($singleRowFromQuery = $resultOfSelect->fetch_assoc()) //that may be waaaaaay ahead of what I'm ready for
-    {
-        print_r($singleRowFromQuery);
-        echo "Author: ".$singleRowFromQuery['first_name'].PHP_EOL; //honestly no clue what PHP_EOL but it doesn't work without it. Will look into it later
-    }
+    print_r($singleRow);
 }
 
 //closing connection to a database
-$connection->close();
+mysql_close($connection);
 echo "\nThe work continues later! Portal has been closed\n";
 
 
