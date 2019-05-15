@@ -1,5 +1,5 @@
 <html>
-<head></head>
+    <head></head>
 <body>
 <?php
 $username = trim($_POST['username']);
@@ -39,6 +39,15 @@ if($selectingPass == $password)
   echo "\n";
   $getTable = "SELECT * FROM auth";
   $gettingTable = mysqli_query($connection,$getTable);
+
+  echo "<tr>
+            <th>Username</th>
+            <th>Password</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+        </tr>"
   while($singleRow = mysqli_fetch($gettingTable))
   {
     $fieldUsername = $singleRow["username"];
@@ -47,7 +56,7 @@ if($selectingPass == $password)
     $fieldLastName = $singleRow["lastName"];
     $fieldEmail = $singleRow["email"];
     $fieldPhone = $singleRow["phone"];
-      
+
     echo '<tr>
             <td>'.$fieldUsername.'</td> 
             <td>'.$fieldPassword.'</td> 
