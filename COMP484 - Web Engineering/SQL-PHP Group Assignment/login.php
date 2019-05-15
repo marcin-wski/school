@@ -1,3 +1,6 @@
+<html>
+<head></head>
+<body>
 <?php
 $username = trim($_POST['username']);
 $password = trim($_POST['password']);
@@ -64,3 +67,5 @@ else
 mysql_close($connection);
 
 ?>
+</body>
+</html>
