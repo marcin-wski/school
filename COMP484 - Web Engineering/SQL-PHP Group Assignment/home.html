@@ -3,22 +3,21 @@
         <meta charset="utf-8">
         <title>Home Page</title>
         <style type="text/css">
-		
+            span {
+                color:red
+            }	
         </style>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 
         <script type="text/javascript">
-
             var newPassword
-
             $( document ).ready(
                 function ()
                 {
                     $("#retype_pass").on('input',passMatch);
                 }
             );
-
             $()
     
             function passMatch()
@@ -29,11 +28,10 @@
                 noMatch = $("#nomatch");
                 
                 if (password != newPassword) {
-                    noMatch.html("Passwords do not match!"); //will still need to add the red font color, but that's later
+                    noMatch.html(" Passwords do not match!"); //will still need to add the red font color, but that's later
                 }
                 else {
                     noMatch.empty()
-                    console.log('yes')
                 }
             }
             
@@ -55,13 +53,13 @@
             </p>
             <p>
                 <label>Password
-                    <input label="password" atype="submit" name="submit"> <!--Input type "password" specifically for password fields-->
+                    <input label="password" type="password" name="submit"> <!--Input type "password" specifically for password fields-->
                 </label>
             </p>
             <input type="submit" name="login" value="Log in"> <!-- for now unsure if "formnovalidate" should be included-->
         </form>
         
-        <form method="post" action="signup.php"> <!--clicking submit sends the data the signup.php file on the server-->
+        <form  method="post" action="signup.php"> <!--clicking submit sends the data the signup.php file on the server-->
             <h1>New Users:</h2>
             <p>
                 <label>First name
@@ -90,12 +88,12 @@
             </p>
             <p>
                 <label>Password
-                    <input id="password" label="password" atype="submit" name="submit"> <!--Input type "password" specifically for password fields-->
+                    <input id="password" label="password" type="password" name="submit"> <!--Input type "password" specifically for password fields-->
                 </label>
             </p>
             <p>
                 <label>Retype password
-                    <input id="retype_pass" label="Retype password" atype="submit" name="submit" keyup="passMarch();"><span id="nomatch"> <!--Need to check if the passwords actually match-->
+                    <input id="retype_pass" label="Retype password" type="password" name="submit" keyup="passMarch();"><span id="nomatch"> <!--Need to check if the passwords actually match-->
                 </label>
             </p>
             <p>
