@@ -1,11 +1,11 @@
-### NOT TESTED YET!!
+### currently testing on CentOS 6
 ---
 - name: Install Traceroute
   tasks:
     -  name: Install sudo
-       action: $ansible_pkg_mgr pkg=sudo state=installed
+       action: $ansible_pkg_mgr pkg=sudo state=latest
     -  name: Install Traceroute
-       action: $ansible_pkg_mgr pkg=traceroute state=installed
+       action: $ansible_pkg_mgr pkg=traceroute state=latest
     -  name: Backup sudoers
        copy:
          src: /etc/sudoers
