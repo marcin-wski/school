@@ -1,0 +1,63 @@
+###NOT TESTED YET!!
+---
+  - name: resolving time zone issue
+    copy:
+      src: /usr/share/zoneinfo/US/Pacific
+      dest: /etc/localtime
+  - name: RHEL-based will need yum-utils
+    action: $ansible_pkg_mgr pkg=yum-utils state=latest
+    when: ansible_facts['os_family'] == "RedHat"
+  - name: Install all PHP7 packages
+    action: $ansible_pkg_mgr pkg={{ item }} state=latest
+    with_items:
+      - httpd
+      - mysql
+      - git
+      - curl
+      - sed
+      - zip
+      - php
+      - php-mysql
+      - php7.2-cli
+      - php7.2-curl
+      - php7.2-gd
+      - php7.2-mbstring
+      - php7.2-mysql
+      - php7.2-xml
+  - name: Debian-based will need libapache2-mod-php   #RHEL-based systems have this included in "php" package
+    action: $ansible_pkg_mgr pkg=libapache2-mod-php state=latest
+    when: ansible_facts['os_family'] == "Debian"
+  - name: Clone affinity
+    git: repo=https://github.com/csuntechlab/affinity.git dest=/var/www/html/affinity
+  - name: download composer
+    shell: curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+  - name: install composer
+    shell: composer install
+    args:
+      chdir: /var/www/html/affinity
+  - name: modify mods-enabled
+    shell: sed -i "s+DirectoryIndex index.html index.cgi index.pl index.php index.xhtml index.htm+DirectoryIndex index.php index.html index.cgi index.pl index.xhtml index.htm+g" /etc/apache2/mods-enabled/dir.conf
+    when: ansible_facts['os_family'] == "Debian"
+  - name: modify the sites for RHEL
+    shell: sed -i "s+DirectoryIndex index.html+DirectoryIndex index.php index.html+g" /etc/httpd/conf/httpd.conf
+    when: ansible_facts['os_family'] == "RedHat"
+  - name: modify sites-available
+    shell: sed -i "s+/var/www/html+/var/www/html/public+g" /etc/apache2/sites-available/000-default.conf
+    when: ansible_facts['os_family'] == "Debian"
+  - name: modify server root in RHEL
+    shell: sed -i "s+/var/www/html+/var/www/html/public+g" /etc/httpd/conf/httpd.conf
+    when: ansible_facts['os_family'] == "RedHat"
+  - name: modify apache conf
+    shell: sed -i "s+Require all denied+Require all granted+g" /etc/apache2/apache2.conf
+    when: ansible_facts['os_family'] == "Debian"
+  - name: modify the equivalent in RHEL
+    shell: sed -i "s+Require all denied+Require all granted+g" /etc/httpd/conf/httpd.conf
+    when: ansible_facts['os_family'] == "RedHat"
+  - name: start Apache on boot
+    service:
+      name: httpd
+      state: started
+
+
+
+
