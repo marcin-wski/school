@@ -1,0 +1,65 @@
+### NOT TESTED YET!!
+---
+- name: Install Traceroute
+  tasks:
+    -  name: Install sudo
+       action: $ansible_pkg_mgr pkg=sudo state=installed
+    -  name: Install Traceroute
+       action: $ansible_pkg_mgr pkg=traceroute state=installed
+    -  name: Backup sudoers
+       copy:
+         src: /etc/sudoers
+         dest: /etc/sudoers.bak
+    -  name: Create a group "admins"
+       group: name=admins
+       become: true
+    -  name: Create a group "cit480"
+       group: name=cit480
+       become: true
+    -  name: Make admin 1
+       user:
+         name: admin1
+         password: ThisIsAdmin01
+         groups:
+          -  admins
+         state: present
+         shell: /bin/bash
+         home: /home/admins/admin1
+     -  name: Make admin 2
+        user:
+          name: admin2
+          password: ThisIsAdmin02
+          groups:
+           -  admins
+           state: present
+           shell: /bin/bash
+           home: /home/admins/admin2
+     -  name: Make an user for CIT480 group
+        user:
+          name: someuser
+          password: ThisIsSomeUserFor480
+          groups:
+           -  cit480
+          state: present
+          shell: /bin/bash
+          home: /home/cit480/someuser
+     -  name: Make another user for CIT480
+        user:
+          name: anotheruser
+          password: ThisIsAnotherUser
+          groups:
+           -  cit480
+          state: present
+          shell: /bin/bash
+          home: /home/cit480/anotheruser
+      -  name: giving admins sudo privileges
+         copy:
+           content: '%admins ALL=(ALL:ALL) ALL:ALL'
+           dest: /etc/sudoers.d/admins
+           mode: 0440
+      -  name: cit480 can run traceroute
+         copy:
+           content: '%cit480 ALL=(ALL) /usr/bin/traceroute'
+           dest: /etc/sudoers.d/cit480
+           mode: 0440
+         
