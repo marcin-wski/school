@@ -55,13 +55,9 @@
        -  cit480
        state: present
        shell: /bin/bash
-  -  name: giving admins sudo privileges
-     copy:
-       content: '%admins ALL=(ALL:ALL) ALL:ALL'
-       dest: /etc/sudoers.d/admins
-       mode: 0440
-  -  name: cit480 can run traceroute
-     copy:
-       content: '%cit480 ALL=(ALL) /usr/bin/traceroute'
-       dest: /etc/sudoers.d/cit480
-       mode: 0440
+  -  name: giving the right sudo privileges
+     blockinfile:
+       path: /etc/sudoers
+       block: |
+         %cit480 ALL=(ALL) /usr/bin/traceroute
+         %admins ALL=(ALL) ALL
