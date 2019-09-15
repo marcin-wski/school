@@ -57,7 +57,7 @@
        shell: /bin/bash
   -  name: giving the right sudo privileges
      blockinfile:
-       path: /etc/sudoers.d
+       path: /etc/sudoers
        block: |
          %cit480 ALL=(ALL) /usr/bin/traceroute
          %admins ALL=(ALL) ALL
