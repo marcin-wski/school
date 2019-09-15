@@ -8,11 +8,23 @@
      copy:
        src: /usr/share/zoneinfo/US/Pacific
        dest: /etc/localtime
-  -  name: RHEL-based will need yum-utils
+  -  name: Getting epel-release for php72
+     become: yes
+     yum: pkg=epel-release state=latest
+     when: ansible_os_family == "RedHat"
+  -  name: RHEL-based will also need yum-utils
      become: yes
      yum: pkg=yum-utils state=latest
      when: ansible_os_family == "RedHat"
-  -  name: Install all PHP7 packages on RHEL
+  -  name: Getting the remi repo for php7 on RHEL
+     become: yes
+     shell: yum install http://rpms.remirepo.net/enterprise/remi-release-7.rpm
+     when: ansible_os_family == "RedHat"
+  -  name: enabling the remi repo for RHEL
+     become: yes
+     shell: yum-config-manager --enable remi-php72
+     when: ansible_os_family == "RedHat"
+  -  name: Install all required PHP7 packages on RHEL
      become: yes
      yum: pkg={{ item }} state=latest
      with_items:
@@ -24,12 +36,8 @@
      -  zip
      -  php
      -  php-mysql
-     -  php7.2-cli     ##### NEED TO LOOK INTO php7 ON RHEL
-     -  php7.2-curl
-     -  php7.2-gd
-     -  php7.2-mbstring
-     -  php7.2-mysql
-     -  php7.2-xml
+     -  php72
+     -  php72-php-fpm
      when: ansible_os_family == "RedHat"
   -  name: Install all PHP7 packages on Debian
      become: yes
@@ -88,7 +96,7 @@
      become: yes
      shell: sed -i "s+DirectoryIndex index.html+DirectoryIndex index.php index.html+g" /etc/httpd/conf/httpd.conf
      when: ansible_os_family == "RedHat"
-  -  name: modify sites-available
+  -  name: modify sites-available on Debian
      become: yes
      shell: sed -i "s+/var/www/html+/var/www/html/public+g" /etc/apache2/sites-available/000-default.conf
      when: ansible_os_family == "Debian"
