@@ -1,5 +1,5 @@
-### tested successfully on CentOS 6
-### tested successfully on Ubuntu server 18.04
+### re-tested successfully on CentOS 6
+### re-tested successfully on Ubuntu server 18.04
 ---
 - hosts: localhost
   tasks:
@@ -57,7 +57,7 @@
        shell: /bin/bash
   -  name: giving the right sudo privileges
      blockinfile:
-       path: /etc/sudoers.d/seniordesign
+       path: /etc/sudoers.d
        block: |
          %cit480 ALL=(ALL) /usr/bin/traceroute
          %admins ALL=(ALL) ALL
