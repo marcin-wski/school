@@ -1,4 +1,4 @@
-###NOT TESTED YET!!
+### Testing on Ubuntu server 18.04
 ---
 - hosts: localhost
   tasks:
@@ -34,8 +34,8 @@
      become: yes
      apt: pkg={{ item }} state=latest
      with_items:
-     -  httpd
-     -  mysql
+     -  apache2
+     -  mysql-client
      -  git
      -  curl
      -  sed
@@ -55,7 +55,22 @@
      git: repo=https://github.com/csuntechlab/affinity.git dest=/var/www/html/affinity
   -  name: Give affinity correct permissions
      file:
-       path: 
+       path: "/var/www/html/affinity"
+       state: directory
+       owner: www-data
+       group: www-data
+       mode: 0755
+     become: yes
+     when: ansible_os_family == "Debian"
+  -  name: Give affinity correct permissions, RHEL version
+     file:
+       path: "/var/www/html/affinity"
+       state: directory
+       owner: apache
+       group: apache
+       mode: 0755
+     become: yes
+     when: ansible_os_family == "RedHat"
   -  name: download composer
      become: yes
      shell: curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
