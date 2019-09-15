@@ -1,37 +1,29 @@
-### currently testing on CentOS 6
+### tested successfully on CentOS 6
+### testing on Ubuntu server 18.04
 ---
 - hosts: localhost
-  become: true
   tasks:
   -  name: Install sudo for RHEL
-     become: true
      yum: pkg=sudo state=latest
      when: ansible_os_family == "RedHat"
   -  name: Install sudo for Debian
-     become: true
      apt: pkg=sudo state=latest
      when: ansible_os_family == "Debian"
   -  name: Install Traceroute for RHEL
-     become: true
      yum: pkg=traceroute state=latest
      when: ansible_os_family == "RedHat"
   -  name: Install Traceroute for Debian
-     become: true
-     yum: pkg=traceroute state=latest
+     apt: pkg=traceroute state=latest
      when: ansible_os_family == "Debian"
   -  name: Backup sudoers
-     become: true
      copy:
        src: /etc/sudoers
        dest: /etc/sudoers.bak
   -  name: Create a group "admins"
      group: name=admins
-     become: true
   -  name: Create a group "cit480"
      group: name=cit480
-     become: true
   -  name: Make admin 1
-     become: true
      user:
        name: admin1
        password: ThisIsAdmin01
@@ -40,7 +32,6 @@
        state: present
        shell: /bin/bash
   -  name: Make admin 2
-     become: true
      user:
        name: admin2
        password: ThisIsAdmin02
@@ -49,7 +40,6 @@
        state: present
        shell: /bin/bash
   -  name: Make an user for CIT480 group
-     become: true
      user:
        name: someuser
        password: ThisIsSomeUserFor480
@@ -58,7 +48,6 @@
        state: present
        shell: /bin/bash
   -  name: Make another user for CIT480
-     become: true
      user:
        name: anotheruser
        password: ThisIsAnotherUser
@@ -67,13 +56,11 @@
        state: present
        shell: /bin/bash
   -  name: giving admins sudo privileges
-     become: true
      copy:
        content: '%admins ALL=(ALL:ALL) ALL:ALL'
        dest: /etc/sudoers.d/admins
        mode: 0440
   -  name: cit480 can run traceroute
-     become: true
      copy:
        content: '%cit480 ALL=(ALL) /usr/bin/traceroute'
        dest: /etc/sudoers.d/cit480
