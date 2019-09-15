@@ -1,6 +1,10 @@
 ### currently testing on CentOS 6
+### doesn't look like $ansible_pkg_mgr wants to work
 ---
 - hosts: localhost
+  vars:
+    "ansible_pkg_mgr": yum
+    when: ansible_facts['os_family'] == "RedHat"
   tasks:
   -  name: Install sudo
      action: $ansible_pkg_mgr pkg=sudo state=latest
@@ -24,7 +28,6 @@
        -  admins
        state: present
        shell: /bin/bash
-       home: /home/admins/admin1
   -  name: Make admin 2
      user:
        name: admin2
@@ -33,7 +36,6 @@
        -  admins
        state: present
        shell: /bin/bash
-       home: /home/admins/admin2
   -  name: Make an user for CIT480 group
      user:
        name: someuser
@@ -42,7 +44,6 @@
        -  cit480
        state: present
        shell: /bin/bash
-       home: /home/cit480/someuser
   -  name: Make another user for CIT480
      user:
        name: anotheruser
@@ -51,7 +52,6 @@
        -  cit480
        state: present
        shell: /bin/bash
-       home: /home/cit480/anotheruser
   -  name: giving admins sudo privileges
      copy:
        content: '%admins ALL=(ALL:ALL) ALL:ALL'
