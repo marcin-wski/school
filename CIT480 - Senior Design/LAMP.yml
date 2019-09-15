@@ -1,4 +1,5 @@
-### Testing on Ubuntu server 18.04
+### Tested successfully on Ubuntu server 18.04
+### Testing on CentOS 7
 ---
 - hosts: localhost
   tasks:
@@ -23,7 +24,7 @@
      -  zip
      -  php
      -  php-mysql
-     -  php7.2-cli
+     -  php7.2-cli     ##### NEED TO LOOK INTO php7 ON RHEL
      -  php7.2-curl
      -  php7.2-gd
      -  php7.2-mbstring
