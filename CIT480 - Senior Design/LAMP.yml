@@ -80,24 +80,38 @@
      args:
        chdir: /var/www/html/affinity
   -  name: modify mods-enabled
+     become: yes
      shell: sed -i "s+DirectoryIndex index.html index.cgi index.pl index.php index.xhtml index.htm+DirectoryIndex index.php index.html index.cgi index.pl index.xhtml index.htm+g" /etc/apache2/mods-enabled/dir.conf
      when: ansible_os_family == "Debian"
   -  name: modify the sites for RHEL
+     become: yes
      shell: sed -i "s+DirectoryIndex index.html+DirectoryIndex index.php index.html+g" /etc/httpd/conf/httpd.conf
      when: ansible_os_family == "RedHat"
   -  name: modify sites-available
+     become: yes
      shell: sed -i "s+/var/www/html+/var/www/html/public+g" /etc/apache2/sites-available/000-default.conf
      when: ansible_os_family == "Debian"
   -  name: modify server root in RHEL
+     become: yes
      shell: sed -i "s+/var/www/html+/var/www/html/public+g" /etc/httpd/conf/httpd.conf
      when: ansible_os_family == "RedHat"
   -  name: modify apache conf
+     become: yes
      shell: sed -i "s+Require all denied+Require all granted+g" /etc/apache2/apache2.conf
      when: ansible_os_family == "Debian"
   -  name: modify the equivalent in RHEL
+     become: yes
      shell: sed -i "s+Require all denied+Require all granted+g" /etc/httpd/conf/httpd.conf
      when: ansible_os_family == "RedHat"
-  -  name: start Apache on boot
+  -  name: start Apache on boot on RHEL
+     become: yes
      service:
        name: httpd
        state: started
+     when: ansible_os_family == "RedHat"
+  -  name: start Apache on boot on Debian
+     become: yes
+     service:
+       name: apache2
+       state: started
+     when: ansible_os_family == "Debian"
