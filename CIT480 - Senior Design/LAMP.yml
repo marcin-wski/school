@@ -1,5 +1,5 @@
 ### Tested successfully on Ubuntu server 18.04
-### Testing on CentOS 7
+### Testing on CentOS 7, there's a lot of PHP packages missing that are currently required by composer (line 88)
 ---
 - hosts: localhost
   tasks:
@@ -18,7 +18,7 @@
      when: ansible_os_family == "RedHat"
   -  name: Getting the remi repo for php7 on RHEL
      become: yes
-     shell: yum install http://rpms.remirepo.net/enterprise/remi-release-7.rpm
+     shell: yum install http://rpms.remirepo.net/enterprise/remi-release-7.rpm -y
      when: ansible_os_family == "RedHat"
   -  name: enabling the remi repo for RHEL
      become: yes
