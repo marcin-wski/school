@@ -1,4 +1,4 @@
-### re-tested successfully on CentOS 6
+### re-tested successfully on CentOS 7
 ### re-tested successfully on Ubuntu server 18.04
 ---
 - hosts: localhost
