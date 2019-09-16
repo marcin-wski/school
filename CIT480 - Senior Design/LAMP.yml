@@ -1,5 +1,5 @@
 ### Tested successfully on Ubuntu server 18.04
-### Testing on CentOS 7
+### Tested and verified on CentOS 7
 ---
 - hosts: localhost
   tasks:
