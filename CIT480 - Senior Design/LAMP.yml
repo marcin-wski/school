@@ -1,5 +1,5 @@
 ### Tested successfully on Ubuntu server 18.04
-### Testing on CentOS 7, there's a lot of PHP packages missing that are currently required by composer (line 88)
+### Testing on CentOS 7, there's a lot of PHP packages missing that are currently required by composer
 ---
 - hosts: localhost
   tasks:
@@ -29,7 +29,7 @@
      yum: pkg={{ item }} state=latest
      with_items:
      -  httpd
-     -  mysql
+     -  mariadb
      -  git
      -  curl
      -  sed
@@ -38,6 +38,12 @@
      -  php-mysql
      -  php72
      -  php72-php-fpm
+     -  php72-php-mbstring
+     -  php72-php-cli
+     -  php72-php-curl
+     -  php72-php-gd
+     -  php72-php-xml
+     -  php72-php-mysql
      when: ansible_os_family == "RedHat"
   -  name: Install all PHP7 packages on Debian
      become: yes
