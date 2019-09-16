@@ -86,14 +86,22 @@
        mode: 0755
      become: yes
      when: ansible_os_family == "RedHat"
+  -  name: Link affinity/public to html/public
+     become: yes
+     command: ln -s /var/www/html/affinity/public /var/www/html/public
   -  name: download composer
      become: yes
      shell: curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-  -  name: install composer
+  -  name: install composer on Debian
      become: yes
-     shell: composer install
+     command: composer install
      args:
        chdir: /var/www/html/affinity
+     when: ansible_os_family == "Debian"
+  -  name: composer for RHEL ###Until I figure out why it doesn't work the same way as on Debian, we'll run this for RHEL
+     become: yes
+     command: cd /var/www/html/affinity && composer install
+     when: ansible_os_family == "RedHat"
   -  name: modify mods-enabled
      become: yes
      shell: sed -i "s+DirectoryIndex index.html index.cgi index.pl index.php index.xhtml index.htm+DirectoryIndex index.php index.html index.cgi index.pl index.xhtml index.htm+g" /etc/apache2/mods-enabled/dir.conf
