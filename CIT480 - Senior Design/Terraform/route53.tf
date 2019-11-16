@@ -1,5 +1,9 @@
+data "aws_route53_zone" "primary" {
+  name = "downtimerus.net."
+}
+
 resource "aws_route53_record" "www" {
-  zone_id = "${aws_route53_zone.primary.zone_id}"
+  zone_id = "${data.aws_route53_zone.primary.zone_id}"
   name    = "downtimerus.net"
   type    = "A"
 
@@ -11,9 +15,9 @@ resource "aws_route53_record" "www" {
 }
 
 resource "aws_route53_record" "cname" {
-  zone_id = "${aws_route53_zone.primary.zone_id}"
+  zone_id = "${data.aws_route53_zone.primary.zone_id}"
   name    = "www.downtimerus.net"
   type    = "CNAME"
   ttl     = "300"
-  records = "downtimerus.net"
+  records = ["downtimerus.net"]
 }
