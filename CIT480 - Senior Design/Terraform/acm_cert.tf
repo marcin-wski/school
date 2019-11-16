@@ -1,10 +1,4 @@
-provider "aws" {
-  alias = "acm"
-  region = "us-west-2"
-}
-
 resource "aws_acm_certificate" "main" {
-  provider = "aws.acm"
   domain_name = "downtimerus.net"
   subject_alternative_names = ["*.downtimerus.net"]
   validation_method = "DNS"
