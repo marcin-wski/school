@@ -15,7 +15,6 @@ resource "aws_elb" "main" {
     lb_port           = 443
     lb_protocol       = "http"
     acm_certificate_arn = "${aws_acm_certificate.default.0.arn}"
-    #ssl_certificate_id instead?
   }
   
     health_check {
@@ -26,7 +25,7 @@ resource "aws_elb" "main" {
     interval            = 30
   }
   
-    instances                   = ["${aws_instance.project1-app}"]
+    instances                   = ["${aws_instance.project1-app.id}"]
     #instaces come from servers.tf where instances are first set up
     cross_zone_load_balancing   = true
     idle_timeout                = 400
