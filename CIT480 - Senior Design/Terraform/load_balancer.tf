@@ -1,5 +1,5 @@
 resource "aws_elb" "main" {
-  name               = "elastic_lb"
+  name               = "elastic-lb"
   subnets            = ["subnet-0eec952ee97f8519b"]
 
   listener {
