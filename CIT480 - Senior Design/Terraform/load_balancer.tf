@@ -1,6 +1,6 @@
 resource "aws_elb" "main" {
   name               = "elastic_lb"
-  availability_zones = ["us-west-2b"]
+  subnets            = ["subnet-0eec952ee97f8519b"]
 
   listener {
     instance_port     = 80
@@ -11,11 +11,10 @@ resource "aws_elb" "main" {
   
     listener {
     instance_port     = 443
-    instance_protocol = "http"
+    instance_protocol = "https"
     lb_port           = 443
-    lb_protocol       = "http"
-    acm_certificate_arn = "${aws_acm_certificate.default.0.arn}"
-    #ssl_certificate_id instead?
+    lb_protocol       = "https"
+    ssl_certificate_id = "${aws_acm_certificate.main.arn}"
   }
   
     health_check {
